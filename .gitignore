@@ -1,2 +1,5 @@
 # JetBrains editor's directory
 .idea
+
+# NodeJS
+node_modules
