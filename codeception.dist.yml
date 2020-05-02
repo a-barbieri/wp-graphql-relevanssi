@@ -34,7 +34,7 @@ modules:
       adminEmail: "%WPTT_SITE_ADMIN_EMAIL%"
       title: "Test"
       plugins:
-        - "wpgraphql_relevanssi/plugin.php"
+        - "wp-graphql-relevanssi/plugin.php"
       activatePlugins:
-        - "wpgraphql_relevanssi/plugin.php"
+        - "wp-graphql-relevanssi/plugin.php"
       configFile: "tests/_data/config.php"
