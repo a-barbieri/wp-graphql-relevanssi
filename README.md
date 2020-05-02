@@ -31,3 +31,5 @@ Once inside the container you can run any Codeception command you need. For exam
 ```bash
 codecept generate:test unit Example
 ```
+
+Initially I was thinking about following [Codeception for Wordpress Guide](https://codeception.com/for/wordpress), but I got stuck and investigating the issue more I've found few articles – [part #1](https://theaveragedev.com/parallel-docker-builds-for-the-wp-browser-project-01/), [#2](https://theaveragedev.com/parallel-docker-builds-for-the-wp-browser-project-02/) and [#3](https://theaveragedev.com/parallel-docker-builds-for-the-wp-browser-project-03/) – from the author explaining the complexities of running this on Docker. Diving deeper I've found [this thread](https://github.com/lucatume/wp-browser/issues/275) which gave me more info and lead me to this [testing tool for Wordpress](https://github.com/valu-digital/wp-testing-tools) based on WP Browser suite.
