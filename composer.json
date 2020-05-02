@@ -1,0 +1,38 @@
+{
+  "name": "alebarbieri/wp-graphql-relevanssi",
+  "description": "WP GraphQL extension for Relevanssi",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Alessandro Barbieri",
+      "email": "info@alessandrobarbieri.net",
+      "role": "developer"
+    }
+  ],
+  "require-dev": {
+    "valu/wp-testing-tools": "^0.4.0",
+    "lucatume/wp-browser": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPGraphQL\\Extensions\\Relevanssi\\": "src/"
+    }
+  },
+  "scripts": {
+    "wp-install": "wp-install --full --env-file .env --wp-composer-file composer.wp-install.json",
+    "wpunit": "codecept run wpunit",
+    "functional": "codecept run functional",
+    "test": [
+      "@wpunit",
+      "@functional"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "support": {
+    "issues": "https://github.com/a-barbieri/wp-graphql-relevanssi/issues",
+    "source": "https://github.com/a-barbieri/wp-graphql-relevanssi"
+  }
+}

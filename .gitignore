@@ -4,5 +4,11 @@
 # NodeJS
 node_modules
 
+# wp-testing-tools
+.env
+.wp-install
+_output
+
 # Composer
+composer.lock
 vendor
