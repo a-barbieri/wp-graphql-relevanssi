@@ -18,6 +18,7 @@ RUN apt-get update && \
     git \
     zip \
     unzip \
+    vim \
     jq \
     less \
     ca-certificates \
