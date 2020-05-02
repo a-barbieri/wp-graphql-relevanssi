@@ -10,5 +10,4 @@ node_modules
 _output
 
 # Composer
-composer.lock
 vendor

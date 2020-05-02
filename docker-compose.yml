@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  composer:
+    build:
+      context: ./custom-composer-image
+    command: install
+    volumes:
+      - .:/app
