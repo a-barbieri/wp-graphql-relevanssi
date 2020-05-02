@@ -1,6 +1,6 @@
 <?php
 
-namespace \WPGraphQL\Extensions\Relevanssi;
+namespace WPGraphQL\Extensions\Relevanssi;
 
 class Loader
 {
