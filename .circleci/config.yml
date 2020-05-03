@@ -5,34 +5,14 @@
 version: 2
 jobs:
   build:
-    docker:
-      # Specify the version you desire here
-      - image: alebarbieri/wp-graphql-relevanssi-ci:0.0.1
-        init: true
-        env_file:
-          - ./.env.circleci
-#        container_name: "${WPTT_CONTAINER_NAME}-wp"
-        ports:
-          - "8080:8080"
-        depends_on:
-          - db
-        volumes:
-          - .:/app
-      - image: circleci/mysql:5.7-ram
-        container_name: db
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # Using the RAM variation mitigates I/O contention
-      # for database intensive operations.
-      # - image: circleci/mysql:5.7-ram
-      #
-      # - image: redis:2.8.19
-
+    machine:
     steps:
       - checkout
-      - run: codecept run
+      - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile
+      - run: docker run --rm custom-composer install
+      - run: docker run --rm custom-composer wp-install:circleci
+      - run: ./docker/run compose up -d
+      - run: ./docker/run shell codecept run
 
 #      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
 #      - run: sudo docker-php-ext-install zip

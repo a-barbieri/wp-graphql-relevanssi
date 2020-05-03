@@ -24,6 +24,7 @@
     }
   },
   "scripts": {
+    "wp-install:circleci": "wp-install --full --env-file .env.circleci --wp-composer-file composer.wp-install.json",
     "wp-install": "wp-install --full --env-file .env --wp-composer-file composer.wp-install.json",
     "wpunit": "codecept run wpunit",
     "functional": "codecept run functional",
