@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
-      - run: docker run --rm custom-composer install
-      - run: docker run --rm custom-composer wp-install:circleci
+      - run: docker run --rm --volume $PWD:/app custom-composer install
+      - run: docker run --rm --volume $PWD:/app custom-composer wp-install:circleci
       - run: ./docker/run compose up -d
       - run: ./docker/run shell codecept run
 
