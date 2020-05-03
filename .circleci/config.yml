@@ -10,9 +10,10 @@ jobs:
       - checkout
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
       - run: docker run --rm --volume $PWD:/app custom-composer install
-      - run: docker run --rm --volume $PWD:/app custom-composer wp-install:circleci
       - run: ./docker/run compose up -d
+      - run: ./docker/run shell wp-install:circleci
       - run: ./docker/run shell codecept run
+#      - run: docker run --rm --volume $PWD:/app custom-composer wp-install:circleci
 
 #      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
 #      - run: sudo docker-php-ext-install zip
