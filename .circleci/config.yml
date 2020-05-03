@@ -8,7 +8,7 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile
+      - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
       - run: docker run --rm custom-composer install
       - run: docker run --rm custom-composer wp-install:circleci
       - run: ./docker/run compose up -d
