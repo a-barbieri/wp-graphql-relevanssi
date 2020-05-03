@@ -5,7 +5,7 @@
 version: 2
 jobs:
   build:
-    machine:
+    machine: true
     steps:
       - checkout
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile
