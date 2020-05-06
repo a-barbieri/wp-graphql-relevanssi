@@ -5,7 +5,8 @@
 version: 2
 jobs:
   build:
-    machine: true
+    machine:
+      image: ubuntu-1604:202004-01
     steps:
       - checkout
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
