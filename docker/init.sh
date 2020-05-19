@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -eux
 
 if [ "${WP_DOCKER:-}" != "1" ]; then
     >&2 echo "This script is for the Docker container init."
