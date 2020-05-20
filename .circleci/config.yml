@@ -12,7 +12,7 @@ jobs:
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
       - run: docker run --rm --volume $PWD:/app custom-composer install
       - run: ./docker/run compose up -d
-      - run: ./docker/run shell composer run-script wp-install:circleci
+      - run: ./docker/run shell php composer.phar wp-install:circleci
       - run: ./docker/run shell codecept run
 #      - run: docker run --rm --volume $PWD:/app custom-composer wp-install:circleci
 
