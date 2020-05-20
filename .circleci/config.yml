@@ -11,9 +11,9 @@ jobs:
       - checkout
       - run: docker image build --tag custom-composer --file ./custom-composer-image/Dockerfile .
       - run: docker run --rm --volume $PWD:/app custom-composer install
-      - run: ./docker/run compose up -d
-      - run: ./docker/run shell php composer.phar wp-install:circleci
-      - run: ./docker/run shell codecept run
+      - run: ./.circleci/images/run compose up -d
+      - run: ./.circleci/images/run shell php composer.phar wp-install:circleci
+      - run: ./.circleci/images/run shell codecept run
 #      - run: docker run --rm --volume $PWD:/app custom-composer wp-install:circleci
 
 #      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
