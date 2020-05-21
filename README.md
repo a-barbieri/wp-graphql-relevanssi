@@ -30,8 +30,25 @@ For more info check [wp-testing-tools guide](https://github.com/valu-digital/wp-
 
 ### Troubleshooting
 
-If Wordpress doesn't seem to have a database, something went wrong on Docker and possibly you need to restore the entire installation. To do so:
+If Wordpress doesn't seem to have a database you might need to create it along with a new fresh installation.
 
+If you haven't done it already, spin up the containers: 
+```bash 
+./docker/run compose
+``` 
+
+Then on a new shell window get into the Wordpress container:
+```bash 
+./docker/run shell
+``` 
+
+Once inside get into the Wordpress directory and then create a db as well as install a fresh instance of WP:
+```bash 
+cd .wp-install/web
+wp db create
+wp core install --url=$WPTT_SITE_HOST --title=WPTest --admin_user=$WPTT_DB_USER --admin_password=$WPTT_DB_PASSWORD --admin_email=$WPTT_SITE_ADMIN_EMAIL
+``` 
+ 
 Remove the `.wp-install` directory:
 ```bash
 rm -rf .wp-install
