@@ -24,6 +24,26 @@ Now you should be inside the container. Here you can use any Codeception command
 
 ```bash
 codecept run wpunit
-```
+``` 
 
 For more info check [wp-testing-tools guide](https://github.com/valu-digital/wp-testing-tools).
+
+### Troubleshooting
+
+If Wordpress doesn't seem to have a database, something went wrong on Docker and possibly you need to restore the entire installation. To do so:
+
+Remove the `.wp-install` directory:
+```bash
+rm -rf .wp-install
+``` 
+
+Then make sure you don't have any container stopped:
+```bash 
+./docker/run compose down
+```
+
+Then just restart compose:
+```bash
+./docker/run compose
+```
+
